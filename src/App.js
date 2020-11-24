@@ -1,28 +1,65 @@
 import React from "react";
 import Sidebar from "./Sidebar";
 import Feed from "./Feed";
+import Profile from "./Profile";
+import Post from "./Post";
+import PostPage from "./PostPage";
 import RightPanel from "./RightPanel";
-import Grid from '@material-ui/core/Grid';
-import { makeStyles } from '@material-ui/core/styles';
+import Grid from "@material-ui/core/Grid";
+import { Route, Switch } from "react-router-dom";
 
-const useStyles = makeStyles({
-  item: {
-    width: "-webkit-fill-available"
-  }
-})
+class App extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			users: [],
+			posts: [],
+		};
+	}
 
-function App() {
-  const classes = useStyles();
-
-  return (
-    <div>
-      <Grid container >
-        <Grid item sm={3} className={classes.item}><Sidebar /></Grid>
-        <Grid item sm={5} className={classes.item}><Feed /></Grid>
-        <Grid item sm={4} className={classes.item}><RightPanel /></Grid>
-      </Grid>
-    </div>
-  );
+	componentDidMount() {
+		fetch("https://jsonplaceholder.typicode.com/users")
+			.then((res) => res.json())
+			.then((result) => {
+				this.setState({
+					users: result,
+				});
+			});
+		fetch("https://jsonplaceholder.typicode.com/posts")
+			.then((res) => res.json())
+			.then((result) => {
+				this.setState({
+					posts: result,
+				});
+			});
+	}
+	render() {
+		return (
+			<div>
+				<Grid container>
+					<Grid item sm={3}>
+						<Sidebar />
+					</Grid>
+					<Grid item sm={5}>
+						<Route exact path="/" component={Feed} />
+						<Route
+							exact
+							path="/profile/:id"
+							render={(props) => <Profile {...props} />}
+						/>
+						<Route
+							exact
+							path="/post/:id"
+							render={(props) => <PostPage {...props} />}
+						/>
+					</Grid>
+					<Grid item sm={4}>
+						<RightPanel />
+					</Grid>
+				</Grid>
+			</div>
+		);
+	}
 }
 
 export default App;

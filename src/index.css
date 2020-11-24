@@ -35,7 +35,11 @@ i {
 }
 
 a {
-  text-decoration: none;
+  text-decoration: none !important;
+}
+
+a:-webkit-any-link {
+  color: inherit !important;
 }
 
 /* Feed */
@@ -67,6 +71,19 @@ a {
 .feed {
   -ms-overflow-style: none; 
   scrollbar-width: none;
+}
+
+/* Profile */
+
+.profile {
+  width: 100%;
+}
+
+.cover-photo {
+  width: 100%;
+  height: 250px;
+  background-image: url("https://source.unsplash.com/random");
+  background-size: contain;
 }
 
 /* Posts */
