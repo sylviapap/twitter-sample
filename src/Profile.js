@@ -6,7 +6,7 @@ export default class Profile extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			user: {name: ""},
+			user: { name: "" },
 			avatar: {},
 			posts: [],
 			userLoaded: false,
@@ -22,7 +22,7 @@ export default class Profile extends Component {
 			.then((result) => {
 				this.setState({
 					user: result,
-					avatar: {url: "https://picsum.photos/200"},
+					avatar: { url: "https://picsum.photos/200" },
 					userLoaded: true,
 				});
 			});

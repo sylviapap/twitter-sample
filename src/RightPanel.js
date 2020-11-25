@@ -5,22 +5,20 @@ const RightPanel = () => {
   const handleSubmit = () => {document.location.reload()}
   return (
     <div className="right-panel">
-      <div className="search">
-        <SearchIcon className="searchIcon" />
+      <div className="search-container">
+        <SearchIcon className="search-icon" />
         <form onSubmit={handleSubmit}>
         <input 
           id="search" 
-          placeholder="Search Twitter" 
+          placeholder="Search" 
           type="text" 
           autoComplete="off" 
         />
         </form>
       </div>
-
-      <div className="widgetContainer">
+      <div className="widget-container">
         <h2>What's happening</h2>
-        
-
+        <img src="https://source.unsplash.com/random"/>
       </div>
     </div>
   );
