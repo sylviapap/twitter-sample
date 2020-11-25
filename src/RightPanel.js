@@ -18,7 +18,7 @@ const RightPanel = () => {
       </div>
       <div className="widget-container">
         <h2>What's happening</h2>
-        <img src="https://source.unsplash.com/random"/>
+        <img src="https://source.unsplash.com/featured"/>
       </div>
     </div>
   );
