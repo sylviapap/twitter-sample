@@ -74,7 +74,6 @@ class App extends React.Component {
 	}
 
 	render() {
-		console.log(!!this.state.users.length);
 		const { users, posts, photos } = this.state;
 		const { error, usersLoaded, postsLoaded, photosLoaded } = this.state;
 		if (error) {

@@ -44,7 +44,6 @@ export default class PostPage extends Component {
 		if (!postLoaded || !commentsLoaded) {
 			return <div>Loading...</div>;
 		} else {
-			console.log(comments)
 			return (
 				<div className="feed">
 					<div className="feed-header">
