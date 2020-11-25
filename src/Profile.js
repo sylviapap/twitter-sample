@@ -3,12 +3,16 @@ import Post from "./Post";
 import VerifiedUserIcon from "@material-ui/icons/VerifiedUser";
 
 export default class Profile extends Component {
-	state = {
-		user: {
-			name: "",
-		},
-		posts: [],
-	};
+	constructor(props) {
+		super(props);
+		this.state = {
+			user: {name: ""},
+			avatar: {},
+			posts: [],
+			userLoaded: false,
+			postsLoaded: false,
+		};
+	}
 
 	componentDidMount() {
 		fetch(
@@ -18,6 +22,8 @@ export default class Profile extends Component {
 			.then((result) => {
 				this.setState({
 					user: result,
+					avatar: {url: "https://picsum.photos/200"},
+					userLoaded: true,
 				});
 			});
 		fetch(
@@ -27,33 +33,34 @@ export default class Profile extends Component {
 			.then((result) => {
 				this.setState({
 					posts: result,
+					postsLoaded: true,
 				});
 			});
 	}
 
 	render() {
-		const { user, posts } = this.state;
+		const { user, avatar, posts, userLoaded, postsLoaded } = this.state;
 		const username = user.name.split(" ").join("").toLowerCase();
-		return (
-			<div className="profile feed">
-				<div className="cover-photo"></div>
-				<div className="feed-header">
-					<h3>
-						{user.name}{" "}
-						<span className="post-headerSpecial">
-							<VerifiedUserIcon className="verified" />
-						</span>
-						<p className="post-headerSpecial">@{username}</p>
-					</h3>
+		if (!postsLoaded || !userLoaded) {
+			return <div>Loading...</div>;
+		} else {
+			return (
+				<div className="profile feed">
+					<div className="cover-photo"></div>
+					<div className="feed-header">
+						<h3>
+							{user.name}{" "}
+							<span className="post-headerSpecial">
+								<VerifiedUserIcon className="verified" />
+							</span>
+							<p className="post-headerSpecial">@{username}</p>
+						</h3>
+					</div>
+					{posts.map((post) => (
+						<Post key={post.id} post={post} user={user} avatar={avatar} />
+					))}
 				</div>
-				{posts.map((post) => (
-					<Post
-						key={post.id}
-						post={post}
-						userId={user.id}
-					/>
-				))}
-			</div>
-		);
+			);
+		}
 	}
 }

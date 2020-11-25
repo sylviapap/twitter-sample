@@ -123,7 +123,7 @@ class App extends React.Component {
 							<Route
 								exact
 								path="/post/:id"
-								render={(props) => <PostPage {...props} />}
+								render={(props) => <PostPage {...props} users={users} avatars={photos}/>}
 							/>
 						</Grid>
 						<Grid item sm={4}>
