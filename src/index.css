@@ -39,7 +39,7 @@ a {
 }
 
 a:-webkit-any-link {
-  color: inherit !important;
+  color: inherit;
 }
 
 /* Feed */
