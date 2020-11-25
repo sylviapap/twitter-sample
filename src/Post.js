@@ -3,12 +3,13 @@ import { Avatar } from "@material-ui/core";
 import VerifiedUserIcon from "@material-ui/icons/VerifiedUser";
 import { Link } from "react-router-dom";
 
-const Post = ({ post, userId }) => {
-	const username = userId;
+const Post = ({ post, user, avatar }) => {
+	const username = user.name.replace(/[^\w]/g, '').toLowerCase();
+	const userId = user.id
 	return (
 		<div className="post" key>
 			<div className="avatar">
-				<Avatar src="https://picsum.photos/200" />
+				<Avatar src={avatar.url} />
 			</div>
 			<div className="post-body">
 				<div className="post-header">
@@ -19,7 +20,7 @@ const Post = ({ post, userId }) => {
 									pathname: `/profile/${userId}`,
 								}}
 							>
-								{username}{" "}
+								{user.name}{" "}
 							</Link>
 							<span className="post-headerSpecial">
 								<VerifiedUserIcon className="verified" />
