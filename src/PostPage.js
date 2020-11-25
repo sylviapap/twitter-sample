@@ -55,6 +55,9 @@ export default class PostPage extends Component {
 						user={users.filter((user) => user.id === post.userId)[0]}
 						avatar={avatars.filter((photo) => photo.id === post.userId)[0]}
 					/>
+					<div className="feed-header">
+					<h4>Comments ({comments.length})</h4>
+					</div>
 					{comments.map((comment) => (
 						<Comment key={comment.id} comment={comment} />
 					))}
