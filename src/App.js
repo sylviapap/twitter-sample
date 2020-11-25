@@ -6,7 +6,7 @@ import PostPage from "./PostPage";
 import RightPanel from "./RightPanel";
 import Grid from "@material-ui/core/Grid";
 import { Route } from "react-router-dom";
-import ComposeTweet from "./ComposeTweet";
+import WriteTweet from "./WriteTweet";
 
 class App extends React.Component {
 	constructor(props) {
@@ -94,7 +94,7 @@ class App extends React.Component {
 									<div className="feed-header">
 										<h2>Home</h2>
 									</div>
-									<ComposeTweet />
+									<WriteTweet />
 									{posts
 										.sort(() => {
 											return 0.5 - Math.random();

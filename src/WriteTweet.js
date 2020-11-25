@@ -1,7 +1,7 @@
 import React from "react";
 import { Avatar, Button } from "@material-ui/core";
 
-function ComposeTweet() {
+function WriteTweet() {
 	return (
 		<div className="compose-tweet">
 			<form>
@@ -17,4 +17,4 @@ function ComposeTweet() {
 	);
 }
 
-export default ComposeTweet;
+export default WriteTweet;
