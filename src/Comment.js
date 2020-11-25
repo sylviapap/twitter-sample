@@ -2,14 +2,23 @@ import React from "react";
 import { Avatar } from "@material-ui/core";
 
 const Comment = ({ comment }) => {
-  const username = comment.email.replace(/[^\w]/g, "").toLowerCase();
-  const colors = ['CornflowerBlue','Brown','BlueViolet','DarkGreen','DarkGrey','Coral','DarkOrange']
-  let color = colors[Math.floor(Math.random() * colors.length)]
-  console.log(color)
+	const username = comment.email.replace(/[^\w]/g, "").toLowerCase();
+	const colors = [
+		"CornflowerBlue",
+		"Brown",
+		"BlueViolet",
+		"DarkGreen",
+		"DarkGrey",
+		"Coral",
+		"DarkOrange",
+	];
+	let color = colors[Math.floor(Math.random() * colors.length)];
 	return (
 		<div className="post" key>
 			<div className="avatar">
-  <Avatar style={{backgroundColor: color}}>{comment.email.charAt(0)}</Avatar>
+				<Avatar style={{ backgroundColor: color }}>
+					{comment.email.charAt(0)}
+				</Avatar>
 			</div>
 			<div className="post-body">
 				<div className="post-header">

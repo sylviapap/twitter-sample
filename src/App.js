@@ -95,7 +95,6 @@ class App extends React.Component {
 										<h2>Home</h2>
 									</div>
 									<TweetBox />
-
 									{posts
 										.sort(() => {
 											return 0.5 - Math.random();
@@ -123,7 +122,9 @@ class App extends React.Component {
 							<Route
 								exact
 								path="/post/:id"
-								render={(props) => <PostPage {...props} users={users} avatars={photos}/>}
+								render={(props) => (
+									<PostPage {...props} users={users} avatars={photos} />
+								)}
 							/>
 						</Grid>
 						<Grid item sm={4}>
