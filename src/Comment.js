@@ -1,21 +1,26 @@
 import React from "react";
 import { Avatar } from "@material-ui/core";
-import VerifiedUserIcon from "@material-ui/icons/VerifiedUser";
-import { Link } from "react-router-dom";
 
-const Comment = ({ comment, user, avatar }) => {
-	// const username = user.name.replace(/[^\w]/g, '').toLowerCase();
-  // const userId = user.id
-  console.log(comment)
+const Comment = ({ comment }) => {
+  const username = comment.email.replace(/[^\w]/g, "").toLowerCase();
+  const colors = ['CornflowerBlue','Brown','BlueViolet','DarkGreen','DarkGrey','Coral','DarkOrange']
+  let color = colors[Math.floor(Math.random() * colors.length)]
+  console.log(color)
 	return (
 		<div className="post" key>
 			<div className="avatar">
-				<Avatar />
+  <Avatar style={{backgroundColor: color}}>{comment.email.charAt(0)}</Avatar>
 			</div>
 			<div className="post-body">
 				<div className="post-header">
 					<div className="post-headerText">
 						<h3>
+							<span className="post-headerSpecial">
+								@{username} &bull;{" "}
+								{new Date(
+									+new Date() - Math.floor(Math.random() * 10000000000)
+								).toLocaleDateString()}
+							</span>
 						</h3>
 					</div>
 					<div className="post-headerDescription">{comment.body}</div>
