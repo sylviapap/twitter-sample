@@ -4,8 +4,8 @@ import VerifiedUserIcon from "@material-ui/icons/VerifiedUser";
 import { Link } from "react-router-dom";
 
 const Post = ({ post, user, avatar }) => {
-	const username = user.name.replace(/[^\w]/g, '').toLowerCase();
-	const userId = user.id
+	const username = user.name.replace(/[^\w]/g, "").toLowerCase();
+	const userId = user.id;
 	return (
 		<div className="post" key>
 			<div className="avatar">
@@ -48,7 +48,9 @@ const Post = ({ post, user, avatar }) => {
 					<div className="post-headerDescription">{post.body}</div>
 				</div>
 				<div className="post-footer">
-					<i className="far fa-comment" />
+					<Link to={{ pathname: `/post/${post.id}` }}>
+						<i className="far fa-comment" />
+					</Link>
 					<i className="fas fa-retweet" />
 					<i className="far fa-heart" />
 					<i className="fa fa-external-link-alt"></i>
