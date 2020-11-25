@@ -195,35 +195,35 @@ a:-webkit-any-link {
 
 /* Compose Tweet */
 
-.compose-tweet {
+.write-tweet {
   padding-bottom: 10px;
   border-bottom: 8px solid var(--twitter-background);
   padding-right: 10px;
 }
 
-.compose-tweet > form {
+.write-tweet > form {
   display: flex;
   flex-direction: column;
 }
 
-.compose-tweet-input {
+.write-tweet-input {
   padding: 20px;
   display: flex;
 }
 
-.compose-tweet-input > input {
+.write-tweet-input > input {
   flex: 1;
   margin-left: 20px;
   font-size: 20px;
   border: none;
 }
 
-.compose-tweet-imageInput {
+.write-tweet-imageInput {
   border: none;
   padding: 10px;
 }
 
-.compose-tweet-tweetButton {
+.write-tweet-tweetButton {
   background-color: var(--twitter-color) !important;
   border: none !important;
   color: white !important;
